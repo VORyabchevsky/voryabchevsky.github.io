@@ -22,6 +22,7 @@ input{
     font-size: 13px;
     padding: 0px 16px;
     margin: 50px 14px;
+    transition: all 0.5s ease;
 }
 .line{
     width:  70px;
@@ -37,10 +38,50 @@ p{
     color: rgb(85,97,112);
 }
 
-
+header{
+    z-index:1000;
+    position:sticky;
+}
 main{
     width: 100%;
     height: 100%;
+}
+/*---анимация загрузчика---*/
+#loader {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  z-index: 1;
+  width: 120px;
+  height: 120px;
+  margin: -76px 0 0 -76px;
+  background:
+      linear-gradient(217deg, rgba(255,0,0,.8), rgba(255,0,0,0) 70.71%),
+      linear-gradient(127deg, rgba(0,255,0,.8), rgba(0,255,0,0) 70.71%),
+      linear-gradient(336deg, rgba(0,0,255,.8), rgba(0,0,255,0) 70.71%);
+  padding: 3px;
+  border-radius: 50%;
+
+  -webkit-animation: spin 2s linear infinite;
+  animation: spin 2s linear infinite;
+}
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+.animate-bottom {
+  -webkit-animation: animatebottom 0.5s ease forwards;
+  -o-animation: animatebottom 0.5s ease forwards;
+  animation: animatebottom 0.5s ease forwards;
+    opacity:0;
+}
+@keyframes animatebottom {
+  from{ bottom:-100px; opacity:0 }
+  to{ bottom:0; opacity:1 }
 }
 
 nav{
@@ -313,6 +354,7 @@ input:active{
     margin-top: 50px;
 }
 .calculation select{
+    -webkit-appearance:none;
     padding: 22px;
     width: 100%;
     color: #747474;

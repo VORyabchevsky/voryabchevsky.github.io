@@ -15,8 +15,10 @@
     href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
   />
 </head>
-<body>
-    <header>
+<body onload="myFunction()" style="margin:0;">
+
+<div id="loader"></div>
+    <header style="display:none;" id="page_header" class="animate-bottom">
         <nav>
             <div class="logo">Владислав Рябчевский</div>
             <div class="menu"><ui>
@@ -29,7 +31,7 @@
             </ui></div>
         </nav>
     </header>
-    <main>
+    <main style="display:none;" id="page_main" class="animate-bottom">
      <section class="main"><div class="title__container">
              <h1>Привет<br>Я, Рябчевский Влад</h1>
              <h4>Программист, DevOps, веб-разработчик</h4>
@@ -155,10 +157,23 @@
 </section>
   <section class="map"><input type=submit value="I'm here!"></section>
    </main>
-    <footer>
+    <footer style="display:none;" id="page_footer"class="animate-bottom" >
 
          <div class="copyright"> Copyright&copy;2022 Андрей Браун. Designed by Web</div>
     </footer>
-     
+<script>
+    var myVar;
+
+    function myFunction() {
+      myVar = setTimeout(showPage, 2000);
+    }
+
+    function showPage() {
+        document.getElementById("loader").style.display = "none";
+        document.getElementById("page_header").style.display = "block";
+        document.getElementById("page_main").style.display = "block";
+        document.getElementById("page_footer").style.display = "block";
+    }
+</script>
 </body>
 </html>
